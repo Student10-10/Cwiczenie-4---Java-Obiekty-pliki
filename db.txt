@@ -1,2 +1,5 @@
 Krzysztof 20
 Janusz 40
+Krzysztof 20
+Janusz 40
+Maciek 12
