@@ -9,20 +9,39 @@ Kod bazowy programu Commit4_0:
 
 import java.io.IOException;
 import java.util.Scanner;
+import java.util.Collection;
+
 
 class Main {
   public static void main(String[] args) {
     try {
       Service s = new Service();
       Scanner sc = new Scanner(System.in);
-      System.out.print("Podaj imie: ");
-      String name = sc.nextLine();
-      System.out.print("Podaj wiek: ");
-      int age = sc.nextInt();
-      s.addStudent(new Student(name, age));
+      System.out.println("1 - Dodaj studenta");
+      System.out.println("2 - Wypisz wszystkich studentów");
+      System.out.print("Wybierz opcję: ");
+      int option = sc.nextInt();
+      sc.nextLine(); 
+      if(option == 1) {
+        System.out.print("Podaj imię: ");
+        String name = sc.nextLine();
+        System.out.print("Podaj wiek: ");
+        int age = sc.nextInt();
+        s.addStudent(new Student(name, age));
+      }
+      else if(option == 2) {
+        var students = s.getStudents();
+        for(Student current : students) {
+          System.out.println(current.ToString());
+        }
+      }
+      else {
+        System.out.println("Nieprawidłowa opcja");
+      }
+
       sc.close();
     } catch (IOException e) {
-      System.out.println("Błąd zapisu do pliku");
+      System.out.println("Błąd operacji na pliku");
     }
   }
 }
